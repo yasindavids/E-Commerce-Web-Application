@@ -10,12 +10,14 @@ namespace ST10269809_POE.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
+            
             _logger = logger;
         }
+          
 
         public IActionResult Index()
-        {
-            return View();
+        {       
+            return View();  
         }
 
         public IActionResult Privacy()

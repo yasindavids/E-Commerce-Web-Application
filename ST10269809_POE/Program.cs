@@ -1,13 +1,32 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace ST10269809_POE
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            var builder = WebApplication.CreateBuilder(args);           
 
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+            builder.Services.AddAuthentication("CookieAuth")
+            .AddCookie("CookieAuth", config =>
+            {
+                config.Cookie.Name = "UserLoginCookie";
+                config.LoginPath = "/Login";
+            });
+
+
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 
             var app = builder.Build();
 
@@ -25,6 +44,7 @@ namespace ST10269809_POE
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.MapControllerRoute(
                 name: "default",
