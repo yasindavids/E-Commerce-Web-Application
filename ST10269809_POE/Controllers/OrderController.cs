@@ -55,7 +55,7 @@ namespace ST10269809_POE.Controllers
            
 
             var result = db.InsertRow(productId, userID, productPrice);
-            return RedirectToAction("Privacy", "Home");
+            return RedirectToAction("OrderSuccess", "Home");
         }
     }
 }

@@ -8,7 +8,7 @@
 <body>
     <form action="/Login/Login" method="post">
         <p>Please enter login details:</p>
-        <p>If you don't have an account <a href="https://localhost:7015/User/SignUp">Sign Up</a> for a new account.</p>
+        <p>If you don't have an account <a href=@Url.Action("SignUp", "User")>Sign Up</a> for a new account.</p>
         <input type="text" name="name" placeholder="Name" required>
         <input type="text" name="email" placeholder="example@gmail.com" required>
         <button type="submit">Submit</button>

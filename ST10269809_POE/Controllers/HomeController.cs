@@ -7,16 +7,16 @@ namespace ST10269809_POE.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        
         private readonly DataAccess db;
         private readonly OrderDatabase data;
 
-
+                       
         public HomeController(ILogger<HomeController> logger)
         {
             data = new OrderDatabase();
             db = new DataAccess();
-            _logger = logger;
+            
         }
         public IActionResult Orders()
         {
@@ -42,6 +42,11 @@ namespace ST10269809_POE.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult OrderSuccess()
         {
             return View();
         }
