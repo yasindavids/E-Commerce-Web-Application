@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using ST10269809_POE.Models;
+using System.Security.Claims;
 
 namespace ST10269809_POE.Controllers
 {
@@ -55,5 +59,6 @@ namespace ST10269809_POE.Controllers
             // Redirect to home page or login page
             return RedirectToAction("Index", "Home");
         }
+
     }
 }

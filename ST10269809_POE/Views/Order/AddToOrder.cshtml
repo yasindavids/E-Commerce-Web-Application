@@ -1,0 +1,17 @@
+﻿@model ST10269809_POE.Controllers.ProductViewModel
+
+@{
+    ViewData["Title"] = "Add To Order";
+}
+
+<p>Product Name: @ViewBag.ProductName</p>
+<p>Product Price: @ViewBag.ProductPrice</p>
+<p>User Name: @ViewBag.UserName</p>
+
+
+<form action="/Order/PlaceOrder" method="post">
+    
+    <input type="hidden" name="productName" value="@ViewBag.ProductName" />
+    <input type="hidden" name="userName" value="@ViewBag.UserName" />
+    <button type="submit" class="btn btn-primary">Confirm Order</button>
+</form>

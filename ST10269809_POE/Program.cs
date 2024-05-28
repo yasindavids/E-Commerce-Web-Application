@@ -46,6 +46,7 @@ namespace ST10269809_POE
             app.UseAuthorization();
             app.UseSession();
 
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");

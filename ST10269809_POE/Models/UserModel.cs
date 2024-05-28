@@ -1,8 +1,8 @@
 ﻿namespace ST10269809_POE.Models
 {
-    using System;
+    
     using System.Data.SqlClient;
-
+           
     public class UserModel
     {
         public string Name { get; set; }
